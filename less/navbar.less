@@ -12,7 +12,7 @@
   position: relative;
   min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: @navbar-margin-bottom;
-  border: 1px solid transparent;
+  border: none;
 
   // Prevent floats from breaking the navbar
   &:extend(.clearfix all);
@@ -394,7 +394,7 @@
 // Default navbar
 .navbar-default {
   background-color: @navbar-default-bg;
-  border-color: @navbar-default-border;
+  border-color: transparent;
 
   .navbar-brand {
     color: @navbar-default-brand-color;
@@ -528,7 +528,7 @@
 
 .navbar-inverse {
   background-color: @navbar-inverse-bg;
-  border-color: @navbar-inverse-border;
+  border-color: @navbar-inverse-bg;
 
   .navbar-brand {
     color: @navbar-inverse-brand-color;

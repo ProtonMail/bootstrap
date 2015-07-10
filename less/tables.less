@@ -34,6 +34,34 @@ th {
         line-height: @line-height-base;
         vertical-align: top;
         border-top: 1px solid @table-border-color;
+        &.narrow {
+          padding-left: 0;
+          padding-right: 0;
+          text-align: center;
+          .fa-lock,
+          .fa-unlock,
+          .fa-unlock-alt,
+          .fa-star-o {
+            color: #aba9bb;
+          }
+          .fa-star {
+            color: #e6d560;
+          }
+          a {
+            text-decoration: none;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+        &.check {
+          padding-right: 0;
+          text-align: center;
+          input[type=checkbox] {
+            position: relative;
+            top: -1px;
+          }
+        }
       }
     }
   }
@@ -56,6 +84,21 @@ th {
   // Account for multiple tbody instances
   > tbody + tbody {
     border-top: 2px solid @table-border-color;
+  }
+
+  tr.unread {
+    td,
+    th {
+      color: #444;
+      font-weight: 500;
+    }
+  }
+
+  tr.read {
+    td,
+    th {
+      color: #666;
+    }
   }
 
   // Nesting
@@ -155,7 +198,6 @@ table {
 // inheritance to nested tables.
 
 // Generate the contextual variants
-.table-row-variant(active; @table-bg-active);
 .table-row-variant(success; @state-success-bg);
 .table-row-variant(info; @state-info-bg);
 .table-row-variant(warning; @state-warning-bg);

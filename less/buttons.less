@@ -19,6 +19,7 @@
   white-space: nowrap;
   .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
   .user-select(none);
+  .transition(.2s ease-in-out all);
 
   &,
   &:active,
@@ -34,6 +35,7 @@
   &.focus {
     color: @btn-default-color;
     text-decoration: none;
+    .transition(.1s ease-in-out all);
   }
 
   &:active,

@@ -23,9 +23,6 @@
 .btn-info,
 .btn-warning,
 .btn-danger {
-  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
-  @shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075);
-  .box-shadow(@shadow);
 
   // Reset the shadow
   &:active,
@@ -46,14 +43,12 @@
 
 // Mixin for generating new styles
 .btn-styles(@btn-color: #555) {
-  #gradient > .vertical(@start-color: @btn-color; @end-color: darken(@btn-color, 12%));
-  .reset-filter(); // Disable gradients for IE9 because filter bleeds through rounded corners; see https://github.com/twbs/bootstrap/issues/10620
-  background-repeat: repeat-x;
+  background: @btn-color;
   border-color: darken(@btn-color, 14%);
 
   &:hover,
   &:focus  {
-    background-color: darken(@btn-color, 12%);
+    background-color: lighten(@btn-color, 12%);
     background-position: 0 -15px;
   }
 
@@ -88,8 +83,8 @@
 }
 
 // Apply the mixin to the buttons
-.btn-default { .btn-styles(@btn-default-bg); text-shadow: 0 1px 0 #fff; border-color: #ccc; }
-.btn-primary { .btn-styles(@btn-primary-bg); }
+.btn-default { .btn-styles(@btn-default-bg); text-shadow: none; }
+// .btn-primary { .btn-styles(@btn-primary-bg); }
 .btn-success { .btn-styles(@btn-success-bg); }
 .btn-info    { .btn-styles(@btn-info-bg); }
 .btn-warning { .btn-styles(@btn-warning-bg); }
@@ -129,38 +124,14 @@
 
 // Default navbar
 .navbar-default {
-  #gradient > .vertical(@start-color: lighten(@navbar-default-bg, 10%); @end-color: @navbar-default-bg);
-  .reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered
+  background: @navbar-default-bg;
   border-radius: @navbar-border-radius;
-  @shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 1px 5px rgba(0,0,0,.075);
-  .box-shadow(@shadow);
-
-  .navbar-nav > .open > a,
-  .navbar-nav > .active > a {
-    #gradient > .vertical(@start-color: darken(@navbar-default-link-active-bg, 5%); @end-color: darken(@navbar-default-link-active-bg, 2%));
-    .box-shadow(inset 0 3px 9px rgba(0,0,0,.075));
-  }
-}
-.navbar-brand,
-.navbar-nav > li > a {
-  text-shadow: 0 1px 0 rgba(255,255,255,.25);
 }
 
 // Inverted navbar
 .navbar-inverse {
-  #gradient > .vertical(@start-color: lighten(@navbar-inverse-bg, 10%); @end-color: @navbar-inverse-bg);
-  .reset-filter(); // Remove gradient in IE<10 to fix bug where dropdowns don't get triggered; see https://github.com/twbs/bootstrap/issues/10257
+  background: @navbar-inverse-bg;
   border-radius: @navbar-border-radius;
-  .navbar-nav > .open > a,
-  .navbar-nav > .active > a {
-    #gradient > .vertical(@start-color: @navbar-inverse-link-active-bg; @end-color: lighten(@navbar-inverse-link-active-bg, 2.5%));
-    .box-shadow(inset 0 3px 9px rgba(0,0,0,.25));
-  }
-
-  .navbar-brand,
-  .navbar-nav > li > a {
-    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-  }
 }
 
 // Undo rounded corners in static and fixed navbars
