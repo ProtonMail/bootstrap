@@ -1,9 +1,10 @@
 // List Groups
 
-.list-group-item-variant(@state; @background; @color) {
+.list-group-item-variant(@state; @background; @color; @border-color;) {
   .list-group-item-@{state} {
     color: @color;
     background-color: @background;
+    border-color: @border-color;
 
     a&,
     button& {
