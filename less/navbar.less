@@ -309,11 +309,17 @@
   &.search-form {
     border-radius: 20px;
     .input-group {
-      :last-child {
-        border-radius: 0 20px 20px 0;
-      }
-      :first-child {
+      .input-group-btn:first-child {
         border-radius: 20px 0 0 20px;
+        .btn {
+          border-radius: 20px 0 0 20px;
+        }
+      }
+      .input-group-btn:last-child {
+        border-radius: 0 20px 20px 0;
+        .btn {
+          border-radius: 0 20px 20px 0;
+        }
       }
     }
   }
